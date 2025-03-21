@@ -1,0 +1,28 @@
+{
+  "name": "learning-mern",
+  "version": "1.0.0",
+  "description": "ToDoApplication",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Satheeshkumar00/Learning-MERN.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Satheeshkumar00/Learning-MERN/issues"
+  },
+  "homepage": "https://github.com/Satheeshkumar00/Learning-MERN#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.12.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

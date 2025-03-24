@@ -1,4 +1,5 @@
 const asyncHanlder = require('express-async-handler');
+const todo = require("../models/toDoModels")
 
 const get = asyncHanlder(async (request,response) => {
     response.set(200).json({message: 'get'})
@@ -12,7 +13,10 @@ const set = asyncHanlder(async (request,response) => {
         response.status(400)
         throw new Error("Please provide the necessary text")
     }
-    else response.set(200).json({message: 'set'})
+    const data = await todo.create({
+        text : request.body.text,
+    })
+    response.set(200).json(data)
 })
 const deleteToDo = asyncHanlder(async (request,response) => {
     response.set(200).json({message: 'delete'})

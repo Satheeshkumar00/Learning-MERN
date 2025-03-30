@@ -14,6 +14,8 @@ app.use(express.urlencoded({extended: false}))
 
 app.use('/api/todos', require('./backend/routes/toDoRoutes'))
 
+app.use('/api/user', require('./backend/routes/userRoutes'))
+
 app.use(errHandler)
 
 app.listen(port, () => {

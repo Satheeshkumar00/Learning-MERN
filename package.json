@@ -19,9 +19,13 @@
   },
   "homepage": "https://github.com/Satheeshkumar00/Learning-MERN#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.2",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "express-async-handler": "^1.2.0",
+    "js": "^0.1.0",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.12.1"
   },
   "devDependencies": {

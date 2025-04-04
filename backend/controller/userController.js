@@ -5,11 +5,11 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
 const generateToken = (id) => {
-    return jwt.sign(id,process.env.JWT_SECRET,{expiresIn: "30d"});
+    return jwt.sign({id},process.env.JWT_SECRET,{expiresIn: "30d"});
 }
 
 const registerUser = asyncHanlder(async (request,response) => {
-    const {name, email, password} =queueMicrotask.body;
+    const {name, email, password} =request.body;
 
     if(!name || !email || !password){
         response.status(400)
@@ -30,7 +30,7 @@ const registerUser = asyncHanlder(async (request,response) => {
             _id: user.id,
             name: user.name,
             email: user.email,
-            token: generateToken(user_id),
+            token: generateToken(user.id),
         })
     }
 });
@@ -43,14 +43,14 @@ const loginUser = asyncHanlder(async (request,response) => {
         throw new Error('Please enter both email and password')
     }
 
-    const user = await user.findOne(email)
+    const user = await User.findOne(email)
 
     if(user && (await bcrypt.compare(password,user.password))){
         response.json({
             _id: user.id,
             name: user.name,
             email: user.email,
-            token: generateToken(user_id),
+            token: generateToken(user.id),
         })
     }
 
